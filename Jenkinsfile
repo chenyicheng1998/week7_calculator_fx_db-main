@@ -4,7 +4,7 @@ pipeline {
     environment {
         // ⚠️ CHANGE THIS to your own Docker Hub username/repo
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
-        DOCKERHUB_REPO           = 'YOUR_DOCKERHUB_USERNAME/calculator-fx-db'
+        DOCKERHUB_REPO           = 'chenyicheng1998/calculator-fx-db'
         DOCKER_IMAGE_TAG         = 'latest'
         PATH = "C:\\Program Files\\Docker\\Docker\\resources\\bin;${env.PATH}"
     }
@@ -24,7 +24,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // ⚠️ CHANGE THIS to your own GitHub repository URL
-                git branch: 'main', url: 'https://github.com/YOUR_GITHUB_USERNAME/week7_calculator_fx_db.git'
+                git branch: 'main', url: 'https://github.com/chenyicheng1998/week7_calculator_fx_db-main.git'
             }
         }
 

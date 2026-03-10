@@ -23,12 +23,9 @@ COPY src ./src
 # Build the shaded JAR
 RUN mvn clean package -DskipTests
 
-# List target folder to check JAR
+# List target folder to verify JAR was built
 RUN ls -l target
 
-# Copy fat jar to a fixed name for the CMD
-COPY target/sum-product_fx-1.0-SNAPSHOT.jar app.jar
-
-# Run the shaded JAR with JavaFX modules
-CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "/app/app.jar"]
+# Run the shaded JAR with JavaFX modules (jar is already in /app/target/ from mvn package)
+CMD ["java", "--module-path", "/opt/javafx-sdk-21/lib", "--add-modules", "javafx.controls,javafx.fxml", "-jar", "/app/target/sum-product_fx-1.0-SNAPSHOT.jar"]
 
